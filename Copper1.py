@@ -7,10 +7,10 @@ r.encoding = 'utf-8'
 sup = BeautifulSoup(r.text,'lxml')
 
 def CopperPriceCheck():
-    PriceCheck = sup.find('span',{'id'}).text    
-    PriceCheck2 = sup.find('strong',{'class':'sell-price-num'}).text    
+    PriceCheck = sup.find('span',{'class':'nowPrice'}).text    
+    #PriceCheck2 = sup.find('span',{'class':'dailyPercent'}).text    
     
     print(PriceCheck)
-    print(PriceCheck2)   
+    #print(PriceCheck2)   
 
 CopperPriceCheck()       
