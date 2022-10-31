@@ -1,3 +1,4 @@
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -7,7 +8,7 @@ r.encoding = 'utf-8'
 sup = BeautifulSoup(r.text,'lxml')
 
 def CopperPriceCheck():
-    PriceCheck = sup.find('span',{'class':'nowPrice'}).text    
+    PriceCheck = sup.find_all('div')
     #PriceCheck2 = sup.find('span',{'class':'dailyPercent'}).text    
     
     print(PriceCheck)
