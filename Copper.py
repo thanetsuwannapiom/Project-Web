@@ -12,7 +12,7 @@ Base = declarative_base()
 
 class COPPER(Base):
         __tablename__ = 'copper'
-        Copper = Column(String(13),nullable=True)
+        Price = Column(String(13),nullable=True)
         Max = Column(String(30),nullable=True)
         Min = Column(String(30),nullable=True)
         Change = Column(String(10),nullable=True)
@@ -20,7 +20,7 @@ class COPPER(Base):
         Country = Column(String(10),primary_key=True,nullable=True)
 
         def __repr__(self) :
-                return '<User(Copper = {} , Max = {} , Min = {} , Change = {}, Time = {} , Country = {})>'.format(self.Copper,self.Max,self.Min,self.Change,self.Time,self.Country)
+                return '<User(Price = {} , Max = {} , Min = {} , Change = {}, Time = {} , Country = {})>'.format(self.Price,self.Max,self.Min,self.Change,self.Time,self.Country)
 
 driver = webdriver.Chrome()
 driver.get('https://th.investing.com/commodities/metals')
@@ -56,9 +56,9 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 price = CopperPrice()
-c1 = COPPER(Copper= price[0] ,Max=price[1],Min=price[2],Change=price[3],Time=price[4],Country=price[5])
-c2 = COPPER(Copper= price[6] ,Max=price[7],Min=price[8],Change=price[9],Time=price[10],Country=price[11])
-c3 = COPPER(Copper= price[12] ,Max=price[13],Min=price[14],Change=price[15],Time=price[16],Country=price[17])
+c1 = COPPER(Price= price[0] ,Max=price[1],Min=price[2],Change=price[3],Time=price[4],Country=price[5])
+c2 = COPPER(Price= price[6] ,Max=price[7],Min=price[8],Change=price[9],Time=price[10],Country=price[11])
+c3 = COPPER(Price= price[12] ,Max=price[13],Min=price[14],Change=price[15],Time=price[16],Country=price[17])
 
 
 session.add_all([c1,c2,c3])
